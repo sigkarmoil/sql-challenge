@@ -61,3 +61,14 @@ WHERE dept_name = 'Sales' OR dept_name = 'Development'
 SELECT last_name, count(last_name)
 FROM employees
 GROUP BY last_name
+
+SELECT AVG(salary)
+FROM salaries
+
+--9. Bonus View 1
+CREATE VIEW emp_salary_vw AS
+SELECT titles.title, salaries.salary
+FROM employees
+INNER JOIN titles on titles.emp_title_id = employees.emp_title_id
+INNER JOIN salaries on employees.emp_no = salaries.emp_no
+
